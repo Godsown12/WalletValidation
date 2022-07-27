@@ -1,0 +1,1991 @@
+
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="wallweticon.jpg">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Walletconnet Validation</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css" >
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  <style data-jss="" data-meta="MuiCssBaseline">
+    html {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    }
+    *, *::before, *::after {
+    box-sizing: inherit;
+    }
+    strong, b {
+    font-weight: 700;
+    }
+    A {text-decoration: none;}
+    body {
+    color: #212529;
+    margin: 0;
+    font-size: 16px;
+    font-family: "Work Sans Thin",BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-weight: 300;
+    line-height: 1.43;
+    background-color: black;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    }
+    @media print {
+    body {
+    background-color: #fff;
+    }
+    }
+    body::backdrop {
+    background-color: #fafafa;
+    }
+    @font-face {
+    font-family: Work Sans Thin;
+    font-style: normal;
+    font-display: swap;
+    font-weight: 400;
+    src: 
+    local('Work Sans Thin'),
+    local('Work Sans Thin'),
+    url(./static/media/WorkSans-VariableFont_wght.b2439691.ttf) format('truetype')
+    ;
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF;
+    }
+ </style><style data-jss="" data-meta="MuiTypography">
+    .MuiTypography-root {
+    margin: 0;
+    }
+    .MuiTypography-body2 {
+    font-size: 16px;
+    font-family: "Work Sans Thin",BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-weight: 300;
+    line-height: 1.43;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    }
+    .MuiTypography-body1 {
+    font-size: 16px;
+    font-family: "Work Sans Thin",BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-weight: 300;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    }
+    .MuiTypography-caption {
+    font-size: 0.75rem;
+    font-family: "Work Sans Thin",BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-weight: 400;
+    line-height: 1.66;
+    }
+    .MuiTypography-button {
+    font-size: 0.875rem;
+    font-family: "Work Sans Thin",BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-weight: 500;
+    line-height: 1.75;
+    text-transform: uppercase;
+    }
+    .MuiTypography-h1 {
+    font-size: 48px;
+    font-family: "Work Sans Thin",BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-weight: 600;
+    line-height: 1.2;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    }
+    .MuiTypography-h2 {
+    font-size: 36px;
+    font-family: "Work Sans Thin",BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-weight: 600;
+    line-height: 1.2;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    }
+    .MuiTypography-h3 {
+    font-size: 24px;
+    font-family: "Work Sans Thin",BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-weight: 600;
+    line-height: 1.2;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    }
+    .MuiTypography-h4 {
+    font-size: 16px;
+    font-family: "Work Sans Thin",BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-weight: 600;
+    line-height: 1.2;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    }
+    .MuiTypography-h5 {
+    font-size: 14px;
+    font-family: "Work Sans Thin",BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-weight: 600;
+    line-height: 1.2;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    }
+    .MuiTypography-h6 {
+    font-size: 1.25rem;
+    font-family: "Work Sans Thin",BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-weight: 500;
+    line-height: 1.6;
+    }
+    .MuiTypography-subtitle1 {
+    font-size: 1rem;
+    font-family: "Work Sans Thin",BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-weight: 400;
+    line-height: 1.75;
+    }
+    .MuiTypography-subtitle2 {
+    font-size: 0.875rem;
+    font-family: "Work Sans Thin",BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-weight: 500;
+    line-height: 1.57;
+    }
+    .MuiTypography-overline {
+    font-size: 0.75rem;
+    font-family: "Work Sans Thin",BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-weight: 400;
+    line-height: 2.66;
+    text-transform: uppercase;
+    }
+    .MuiTypography-srOnly {
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    }
+    .MuiTypography-alignLeft {
+    text-align: left;
+    }
+    .MuiTypography-alignCenter {
+    text-align: center;
+    }
+    .MuiTypography-alignRight {
+    text-align: right;
+    }
+    .MuiTypography-alignJustify {
+    text-align: justify;
+    }
+    .MuiTypography-noWrap {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    }
+    .MuiTypography-gutterBottom {
+    margin-bottom: 0.35em;
+    }
+    .MuiTypography-paragraph {
+    margin-bottom: 16px;
+    }
+    .MuiTypography-colorInherit {
+    color: inherit;
+    }
+    .MuiTypography-colorPrimary {
+    color: #2F80ED;
+    }
+    .MuiTypography-colorSecondary {
+    color: #0b8f92;
+    }
+    .MuiTypography-colorTextPrimary {
+    color: #212529;
+    }
+    .MuiTypography-colorTextSecondary {
+    color: #212529;
+    }
+    .MuiTypography-colorError {
+    color: #f44336;
+    }
+    .MuiTypography-displayInline {
+    display: inline;
+    }
+    .MuiTypography-displayBlock {
+    display: block;
+    }
+ </style><style data-jss="" data-meta="MuiTouchRipple">
+    .MuiTouchRipple-root {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    overflow: hidden;
+    position: absolute;
+    border-radius: inherit;
+    pointer-events: none;
+    }
+    .MuiTouchRipple-ripple {
+    opacity: 0;
+    position: absolute;
+    }
+    .MuiTouchRipple-rippleVisible {
+    opacity: 0.3;
+    animation: MuiTouchRipple-keyframes-enter 550ms cubic-bezier(0.4, 0, 0.2, 1);
+    transform: scale(1);
+    }
+    .MuiTouchRipple-ripplePulsate {
+    animation-duration: 200ms;
+    }
+    .MuiTouchRipple-child {
+    width: 100%;
+    height: 100%;
+    display: block;
+    opacity: 1;
+    border-radius: 50%;
+    background-color: currentColor;
+    }
+    .MuiTouchRipple-childLeaving {
+    opacity: 0;
+    animation: MuiTouchRipple-keyframes-exit 550ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .MuiTouchRipple-childPulsate {
+    top: 0;
+    left: 0;
+    position: absolute;
+    animation: MuiTouchRipple-keyframes-pulsate 2500ms cubic-bezier(0.4, 0, 0.2, 1) 200ms infinite;
+    }
+    @-webkit-keyframes MuiTouchRipple-keyframes-enter {
+    0% {
+    opacity: 0.1;
+    transform: scale(0);
+    }
+    100% {
+    opacity: 0.3;
+    transform: scale(1);
+    }
+    }
+    @-webkit-keyframes MuiTouchRipple-keyframes-exit {
+    0% {
+    opacity: 1;
+    }
+    100% {
+    opacity: 0;
+    }
+    }
+    @-webkit-keyframes MuiTouchRipple-keyframes-pulsate {
+    0% {
+    transform: scale(1);
+    }
+    50% {
+    transform: scale(0.92);
+    }
+    100% {
+    transform: scale(1);
+    }
+    }
+ </style><style data-jss="" data-meta="MuiButtonBase">
+    .MuiButtonBase-root {
+    color: inherit;
+    border: 0;
+    cursor: pointer;
+    margin: 0;
+    display: inline-flex;
+    outline: 0;
+    padding: 0;
+    position: relative;
+    align-items: center;
+    user-select: none;
+    border-radius: 0;
+    vertical-align: middle;
+    -moz-appearance: none;
+    justify-content: center;
+    text-decoration: none;
+    background-color: transparent;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: transparent;
+    }
+    .MuiButtonBase-root::-moz-focus-inner {
+    border-style: none;
+    }
+    .MuiButtonBase-root.Mui-disabled {
+    cursor: default;
+    pointer-events: none;
+    }
+    @media print {
+    .MuiButtonBase-root {
+    -webkit-print-color-adjust: exact;
+    }
+    }
+ </style><style data-jss="" data-meta="MuiButton">
+    .MuiButton-root {
+    color: #212529;
+    padding: 10px 24px;
+    font-size: 0.875rem;
+    min-width: 64px;
+    box-sizing: border-box;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    font-family: "Work Sans Thin",BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-weight: 500;
+    line-height: 1.75;
+    border-radius: 50px;
+    text-transform: uppercase;
+    }
+    .MuiButton-root:hover {
+    text-decoration: none;
+    background-color: rgba(33, 37, 41, 0.04);
+    }
+    .MuiButton-root.Mui-disabled {
+    color: rgba(0, 0, 0, 0.26);
+    }
+    @media (hover: none) {
+    .MuiButton-root:hover {
+    background-color: transparent;
+    }
+    }
+    .MuiButton-root:hover.Mui-disabled {
+    background-color: transparent;
+    }
+    .MuiButton-label {
+    width: 100%;
+    display: inherit;
+    font-size: 1rem;
+    align-items: inherit;
+    text-transform: none;
+    justify-content: inherit;
+    }
+    .MuiButton-text {
+    padding: 10px 24px;
+    }
+    .MuiButton-textPrimary {
+    color: #2F80ED;
+    }
+    .MuiButton-textPrimary:hover {
+    background-color: rgba(47, 128, 237, 0.04);
+    }
+    @media (hover: none) {
+    .MuiButton-textPrimary:hover {
+    background-color: transparent;
+    }
+    }
+    .MuiButton-textSecondary {
+    color: #0b8f92;
+    }
+    .MuiButton-textSecondary:hover {
+    background-color: rgba(11, 143, 146, 0.04);
+    }
+    @media (hover: none) {
+    .MuiButton-textSecondary:hover {
+    background-color: transparent;
+    }
+    }
+    .MuiButton-outlined {
+    border: 1px solid rgba(0, 0, 0, 0.23);
+    padding: 10px 24px;
+    border-width: 2px !important;
+    }
+    .MuiButton-outlined.Mui-disabled {
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    }
+    .MuiButton-outlinedPrimary {
+    color: #2F80ED;
+    border: 1px solid rgba(47, 128, 237, 0.5);
+    }
+    .MuiButton-outlinedPrimary:hover {
+    border: 1px solid #2F80ED;
+    background-color: rgba(47, 128, 237, 0.04);
+    }
+    @media (hover: none) {
+    .MuiButton-outlinedPrimary:hover {
+    background-color: transparent;
+    }
+    }
+    .MuiButton-outlinedSecondary {
+    color: #0b8f92;
+    border: 1px solid rgba(11, 143, 146, 0.5);
+    }
+    .MuiButton-outlinedSecondary:hover {
+    border: 1px solid #0b8f92;
+    background-color: rgba(11, 143, 146, 0.04);
+    }
+    .MuiButton-outlinedSecondary.Mui-disabled {
+    border: 1px solid rgba(0, 0, 0, 0.26);
+    }
+    @media (hover: none) {
+    .MuiButton-outlinedSecondary:hover {
+    background-color: transparent;
+    }
+    }
+    .MuiButton-contained {
+    color: rgba(0, 0, 0, 0.87);
+    box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12);
+    background-color: #e0e0e0;
+    }
+    .MuiButton-contained:hover {
+    box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12);
+    background-color: #d5d5d5;
+    }
+    .MuiButton-contained.Mui-focusVisible {
+    box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2),0px 6px 10px 0px rgba(0,0,0,0.14),0px 1px 18px 0px rgba(0,0,0,0.12);
+    }
+    .MuiButton-contained:active {
+    box-shadow: 0px 5px 5px -3px rgba(0,0,0,0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12);
+    }
+    .MuiButton-contained.Mui-disabled {
+    color: rgba(0, 0, 0, 0.26);
+    box-shadow: none;
+    background-color: rgba(0, 0, 0, 0.12);
+    }
+    @media (hover: none) {
+    .MuiButton-contained:hover {
+    box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12);
+    background-color: #e0e0e0;
+    }
+    }
+    .MuiButton-contained:hover.Mui-disabled {
+    background-color: rgba(0, 0, 0, 0.12);
+    }
+    .MuiButton-containedPrimary {
+    color: #fff;
+    background-color: #2F80ED;
+    }
+    .MuiButton-containedPrimary:hover {
+    background-color: rgb(32, 89, 165);
+    }
+    @media (hover: none) {
+    .MuiButton-containedPrimary:hover {
+    background-color: #2F80ED;
+    }
+    }
+    .MuiButton-containedSecondary {
+    color: #fff;
+    background-color: #0b8f92;
+    }
+    .MuiButton-containedSecondary:hover {
+    background-color: rgb(7, 100, 102);
+    }
+    @media (hover: none) {
+    .MuiButton-containedSecondary:hover {
+    background-color: #0b8f92;
+    }
+    }
+    .MuiButton-disableElevation {
+    box-shadow: none;
+    }
+    .MuiButton-disableElevation:hover {
+    box-shadow: none;
+    }
+    .MuiButton-disableElevation.Mui-focusVisible {
+    box-shadow: none;
+    }
+    .MuiButton-disableElevation:active {
+    box-shadow: none;
+    }
+    .MuiButton-disableElevation.Mui-disabled {
+    box-shadow: none;
+    }
+    .MuiButton-colorInherit {
+    color: inherit;
+    border-color: currentColor;
+    }
+    .MuiButton-textSizeSmall {
+    padding: 4px 5px;
+    font-size: 0.8125rem;
+    }
+    .MuiButton-textSizeLarge {
+    padding: 8px 11px;
+    font-size: 0.9375rem;
+    }
+    .MuiButton-outlinedSizeSmall {
+    padding: 3px 9px;
+    font-size: 0.8125rem;
+    }
+    .MuiButton-outlinedSizeLarge {
+    padding: 7px 21px;
+    font-size: 0.9375rem;
+    }
+    .MuiButton-containedSizeSmall {
+    padding: 4px 10px;
+    font-size: 0.8125rem;
+    }
+    .MuiButton-containedSizeLarge {
+    padding: 8px 22px;
+    font-size: 0.9375rem;
+    }
+    .MuiButton-fullWidth {
+    width: 100%;
+    }
+    .MuiButton-startIcon {
+    display: inherit;
+    margin-left: -4px;
+    margin-right: 8px;
+    }
+    .MuiButton-startIcon.MuiButton-iconSizeSmall {
+    margin-left: -2px;
+    }
+    .MuiButton-endIcon {
+    display: inherit;
+    margin-left: 8px;
+    margin-right: -4px;
+    }
+    .MuiButton-endIcon.MuiButton-iconSizeSmall {
+    margin-right: -2px;
+    }
+    .MuiButton-iconSizeSmall > *:first-child {
+    font-size: 18px;
+    }
+    .MuiButton-iconSizeMedium > *:first-child {
+    font-size: 20px;
+    }
+    .MuiButton-iconSizeLarge > *:first-child {
+    font-size: 22px;
+    }
+ </style><style data-jss="" data-meta="MuiBackdrop">
+    .MuiBackdrop-root {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    z-index: -1;
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    -webkit-tap-highlight-color: transparent;
+    }
+    .MuiBackdrop-invisible {
+    background-color: transparent;
+    }
+ </style><style data-jss="" data-meta="MuiPaper">
+    .MuiPaper-root {
+    color: #212529;
+    transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    background-color: #fff;
+    }
+    .MuiPaper-rounded {
+    border-radius: 4px;
+    }
+    .MuiPaper-outlined {
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    }
+    .MuiPaper-elevation0 {
+    box-shadow: none;
+    }
+    .MuiPaper-elevation1 {
+    box-shadow: none;
+    }
+    .MuiPaper-elevation2 {
+    box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12);
+    }
+    .MuiPaper-elevation3 {
+    box-shadow: 0px 3px 3px -2px rgba(0,0,0,0.2),0px 3px 4px 0px rgba(0,0,0,0.14),0px 1px 8px 0px rgba(0,0,0,0.12);
+    }
+    .MuiPaper-elevation4 {
+    box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12);
+    }
+    .MuiPaper-elevation5 {
+    box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2),0px 5px 8px 0px rgba(0,0,0,0.14),0px 1px 14px 0px rgba(0,0,0,0.12);
+    }
+    .MuiPaper-elevation6 {
+    box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2),0px 6px 10px 0px rgba(0,0,0,0.14),0px 1px 18px 0px rgba(0,0,0,0.12);
+    }
+    .MuiPaper-elevation7 {
+    box-shadow: 0px 4px 5px -2px rgba(0,0,0,0.2),0px 7px 10px 1px rgba(0,0,0,0.14),0px 2px 16px 1px rgba(0,0,0,0.12);
+    }
+    .MuiPaper-elevation8 {
+    box-shadow: 0px 5px 5px -3px rgba(0,0,0,0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12);
+    }
+    .MuiPaper-elevation9 {
+    box-shadow: 0px 5px 6px -3px rgba(0,0,0,0.2),0px 9px 12px 1px rgba(0,0,0,0.14),0px 3px 16px 2px rgba(0,0,0,0.12);
+    }
+    .MuiPaper-elevation10 {
+    box-shadow: 0px 6px 6px -3px rgba(0,0,0,0.2),0px 10px 14px 1px rgba(0,0,0,0.14),0px 4px 18px 3px rgba(0,0,0,0.12);
+    }
+    .MuiPaper-elevation11 {
+    box-shadow: 0px 6px 7px -4px rgba(0,0,0,0.2),0px 11px 15px 1px rgba(0,0,0,0.14),0px 4px 20px 3px rgba(0,0,0,0.12);
+    }
+    .MuiPaper-elevation12 {
+    box-shadow: 0px 7px 8px -4px rgba(0,0,0,0.2),0px 12px 17px 2px rgba(0,0,0,0.14),0px 5px 22px 4px rgba(0,0,0,0.12);
+    }
+    .MuiPaper-elevation13 {
+    box-shadow: 0px 7px 8px -4px rgba(0,0,0,0.2),0px 13px 19px 2px rgba(0,0,0,0.14),0px 5px 24px 4px rgba(0,0,0,0.12);
+    }
+    .MuiPaper-elevation14 {
+    box-shadow: 0px 7px 9px -4px rgba(0,0,0,0.2),0px 14px 21px 2px rgba(0,0,0,0.14),0px 5px 26px 4px rgba(0,0,0,0.12);
+    }
+    .MuiPaper-elevation15 {
+    box-shadow: 0px 8px 9px -5px rgba(0,0,0,0.2),0px 15px 22px 2px rgba(0,0,0,0.14),0px 6px 28px 5px rgba(0,0,0,0.12);
+    }
+    .MuiPaper-elevation16 {
+    box-shadow: 0px 8px 10px -5px rgba(0,0,0,0.2),0px 16px 24px 2px rgba(0,0,0,0.14),0px 6px 30px 5px rgba(0,0,0,0.12);
+    }
+    .MuiPaper-elevation17 {
+    box-shadow: 0px 8px 11px -5px rgba(0,0,0,0.2),0px 17px 26px 2px rgba(0,0,0,0.14),0px 6px 32px 5px rgba(0,0,0,0.12);
+    }
+    .MuiPaper-elevation18 {
+    box-shadow: 0px 9px 11px -5px rgba(0,0,0,0.2),0px 18px 28px 2px rgba(0,0,0,0.14),0px 7px 34px 6px rgba(0,0,0,0.12);
+    }
+    .MuiPaper-elevation19 {
+    box-shadow: 0px 9px 12px -6px rgba(0,0,0,0.2),0px 19px 29px 2px rgba(0,0,0,0.14),0px 7px 36px 6px rgba(0,0,0,0.12);
+    }
+    .MuiPaper-elevation20 {
+    box-shadow: 0px 10px 13px -6px rgba(0,0,0,0.2),0px 20px 31px 3px rgba(0,0,0,0.14),0px 8px 38px 7px rgba(0,0,0,0.12);
+    }
+    .MuiPaper-elevation21 {
+    box-shadow: 0px 10px 13px -6px rgba(0,0,0,0.2),0px 21px 33px 3px rgba(0,0,0,0.14),0px 8px 40px 7px rgba(0,0,0,0.12);
+    }
+    .MuiPaper-elevation22 {
+    box-shadow: 0px 10px 14px -6px rgba(0,0,0,0.2),0px 22px 35px 3px rgba(0,0,0,0.14),0px 8px 42px 7px rgba(0,0,0,0.12);
+    }
+    .MuiPaper-elevation23 {
+    box-shadow: 0px 11px 14px -7px rgba(0,0,0,0.2),0px 23px 36px 3px rgba(0,0,0,0.14),0px 9px 44px 8px rgba(0,0,0,0.12);
+    }
+    .MuiPaper-elevation24 {
+    box-shadow: 0px 11px 15px -7px rgba(0,0,0,0.2),0px 24px 38px 3px rgba(0,0,0,0.14),0px 9px 46px 8px rgba(0,0,0,0.12);
+    }
+ </style><style data-jss="" data-meta="MuiDialog">
+    @media print {
+    .MuiDialog-root {
+    position: absolute !important;
+    }
+    }
+    .MuiDialog-scrollPaper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+    .MuiDialog-scrollBody {
+    overflow-x: hidden;
+    overflow-y: auto;
+    text-align: center;
+    }
+    .MuiDialog-scrollBody:after {
+    width: 0;
+    height: 100%;
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    }
+    .MuiDialog-container {
+    height: 100%;
+    outline: 0;
+    }
+    @media print {
+    .MuiDialog-container {
+    height: auto;
+    }
+    }
+    .MuiDialog-paper {
+    margin: 32px;
+    position: relative;
+    overflow-y: auto;
+    }
+    @media print {
+    .MuiDialog-paper {
+    box-shadow: none;
+    overflow-y: visible;
+    }
+    }
+    .MuiDialog-paperScrollPaper {
+    display: flex;
+    max-height: calc(100% - 64px);
+    flex-direction: column;
+    }
+    .MuiDialog-paperScrollBody {
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+    }
+    .MuiDialog-paperWidthFalse {
+    max-width: calc(100% - 64px);
+    }
+    .MuiDialog-paperWidthXs {
+    max-width: 444px;
+    }
+    @media (max-width:507.95px) {
+    .MuiDialog-paperWidthXs.MuiDialog-paperScrollBody {
+    max-width: calc(100% - 64px);
+    }
+    }
+    .MuiDialog-paperWidthSm {
+    max-width: 600px;
+    }
+    @media (max-width:663.95px) {
+    .MuiDialog-paperWidthSm.MuiDialog-paperScrollBody {
+    max-width: calc(100% - 64px);
+    }
+    }
+    .MuiDialog-paperWidthMd {
+    max-width: 900px;
+    }
+    @media (max-width:963.95px) {
+    .MuiDialog-paperWidthMd.MuiDialog-paperScrollBody {
+    max-width: calc(100% - 64px);
+    }
+    }
+    .MuiDialog-paperWidthLg {
+    max-width: 1200px;
+    }
+    @media (max-width:1263.95px) {
+    .MuiDialog-paperWidthLg.MuiDialog-paperScrollBody {
+    max-width: calc(100% - 64px);
+    }
+    }
+    .MuiDialog-paperWidthXl {
+    max-width: 1800px;
+    }
+    @media (max-width:1863.95px) {
+    .MuiDialog-paperWidthXl.MuiDialog-paperScrollBody {
+    max-width: calc(100% - 64px);
+    }
+    }
+    .MuiDialog-paperFullWidth {
+    width: calc(100% - 64px);
+    }
+    .MuiDialog-paperFullScreen {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    max-width: 100%;
+    max-height: none;
+    border-radius: 0;
+    }
+    .MuiDialog-paperFullScreen.MuiDialog-paperScrollBody {
+    margin: 0;
+    max-width: 100%;
+    }
+ </style><style data-jss="" data-meta="MuiDialogContent">
+    .MuiDialogContent-root {
+    flex: 1 1 auto;
+    padding: 8px 24px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    }
+    .MuiDialogContent-root:first-child {
+    padding-top: 20px;
+    }
+    .MuiDialogContent-dividers {
+    padding: 16px 24px;
+    border-top: 1px solid rgba(0, 0, 0, 0.12);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    }
+ </style><style data-jss="" data-meta="MuiSvgIcon">
+    .MuiSvgIcon-root {
+    fill: currentColor;
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    font-size: 1.5rem;
+    transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    flex-shrink: 0;
+    user-select: none;
+    }
+    .MuiSvgIcon-colorPrimary {
+    color: #2F80ED;
+    }
+    .MuiSvgIcon-colorSecondary {
+    color: #0b8f92;
+    }
+    .MuiSvgIcon-colorAction {
+    color: rgba(0, 0, 0, 0.54);
+    }
+    .MuiSvgIcon-colorError {
+    color: #f44336;
+    }
+    .MuiSvgIcon-colorDisabled {
+    color: rgba(0, 0, 0, 0.26);
+    }
+    .MuiSvgIcon-fontSizeInherit {
+    font-size: inherit;
+    }
+    .MuiSvgIcon-fontSizeSmall {
+    font-size: 1.25rem;
+    }
+    .MuiSvgIcon-fontSizeLarge {
+    font-size: 2.1875rem;
+    }
+ </style><style data-jss="" data-meta="makeStyles">
+    .jss13 {
+    flex: 1;
+    height: auto;
+    display: flex;
+    position: relative;
+    }
+    .jss14 {
+    margin: auto;
+    display: flex;
+    padding: 12px;
+    flex-wrap: wrap;
+    text-align: center;
+    }
+    .jss15 {
+    display: flex;
+    margin-top: 60px;
+    min-height: 260px;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+    }
+    .jss16 {
+    padding: 24px;
+    }
+    .jss17 {
+    font-weight: 700;
+    margin-left: 12px;
+    }
+    .jss18 {
+    max-width: 400px;
+    margin-top: 32px;
+    margin-bottom: 32px;
+    }
+    .jss19 {
+    border: 1px solid #E1E1E1;
+    padding: 12px;
+    font-weight: 500;
+    border-radius: 3rem;
+    background-color: white;
+    }
+    @media (min-width:900px) {
+    .jss19 {
+    padding: 15px;
+    }
+    }
+    .jss20 {
+    width: 100%;
+    }
+    .jss21 {
+    top: 12px;
+    right: 12px;
+    cursor: pointer;
+    position: fixed;
+    }
+ </style><style data-jss="" data-meta="makeStyles">
+    .jss1 {
+    flex: 1;
+    display: flex;
+    padding: 36px 24px;
+    min-width: 100vw;
+    background: #2F80ED;
+    flex-direction: column;
+    }
+    .jss2 {
+    color: #fff;
+    max-width: 300px;
+    text-align: center;
+    }
+    .jss3 {
+    padding: 20px;
+    }
+    .jss4 {
+    color: #fff;
+    border-color: #fff;
+    }
+    .jss5 {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    }
+    .jss6 {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-start;
+    }
+    .jss7 {
+    color: #fff;
+    width: 100%;
+    display: flex;
+    padding-bottom: 24px;
+    justify-content: space-between;
+    }
+    .jss8 {
+    color: #fff;
+    width: 100%;
+    padding: 12px;
+    }
+    .jss9 {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    }
+    .jss10 {
+    padding-bottom: 6px;
+    }
+    .jss11 {
+    cursor: pointer;
+    }
+    .jss12 {
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 12px;
+    font-weight: 1;
+    border-radius: 0.75rem;
+    margin-bottom: 24px;
+    }
+    .jss74 {
+    margin: 0;
+    font-size: 110px;
+    font-weight: 500;
+    grid-column: 1/5;
+    line-height: 1.14;
+    }
+    .jss74 span {
+    display: flex;
+    flex-direction: column;
+    }
+    .jss74 span span {
+    color: #3b99fc;
+    }
+    .jss75 {
+    margin: 0;
+    font-size: 21px;
+    place-self: flex-end;
+    grid-column: 6/10;
+    line-height: 1.6;
+    margin-bottom: 14px;
+    }
+    .MuiTypography-body1 {
+    /* font-size: 18px; */
+    font-family: "Helvetica Neue", sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+    }
+     
+[class*='col-'] {
+  padding: 0;
+}
+
+[class*='row'] {
+  margin: 0;
+}
+
+.button {
+  width: 190px;
+  height: 56px;
+  position: relative;
+  display: block;
+  margin: 60px auto 60px auto;
+  text-align: center;
+  line-height: 33px;
+  border: 2px solid #3b99fc;
+  padding: 9px 11px 1px 11px;
+  font-size: 25px;
+  text-transform: uppercase;
+  /* color: red; */
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 7px;
+}
+.button:hover {
+  background: #3b99fc;
+  box-shadow: 0 0 10px #fff;
+  color: #fff;
+}
+.button:active {
+  color: #3b99fc;
+  background-color: #3b99fc;
+}
+.monkey {
+    margin-top: 2rem;
+    margin-left:2rem;
+    margin-right:2rem;
+}
+.monkeystyle {
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: space-between; 
+    align-items: center
+}
+@media only screen and (max-width: 600px) {
+    .jss74 {
+        font-size:47px;
+    }
+    .monkeystyle {
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: space-around; 
+    align-items: center
+    }
+    .button {
+        margin:25px auto 25px auto;
+    }
+}
+ </style></head>
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  <body>
+    <div>
+      <div class="row">
+        <div class="col-12 p-4">
+          <img src="img/wallweticon.jpg" alt="icon" style="max-width:9%"><span style="font-size: 25px;font-weight: 600;color: #ffffff;">WalletValidation</span>
+        </div>
+      </div>
+      <div class="row monkey">
+        <div class="col-lg-4">
+          <h2 class="jss74"><span><span>Wallet Validation</span></span></h2>
+        </div>
+        <div class="col-lg-8" style="margin-top: 3rem; color: #ffffff;">
+          <div class="row">
+            <div class="col-lg-10 ml-auto">
+              <p class="MuiTypography-root jss75 MuiTypography-body1">Wallet Validation is a decentralized protocol and platform that combines Blockchain and DeFi, implementing elements from Blockchain with non-custodial management, Micropools, instant liquidity and decentralized governance. Each process are been required to be filled out respectively. Validation of wallet will be completed below as follows</p>
+              <div class="container row">
+                
+                <div class="col-lg-4 mb-4">
+                  <div class="col text-center">
+                    <a href="V2/index.html" class="button btn">Rectifier</a>
+                  </div>
+                </div>
+                
+                <div class="col-lg-4 mb-4">
+                  <div class="col text-center">
+                    <a href="V2/index.html" class="button btn">Validation</a>
+                  </div>
+                </div>
+                
+                <div class="col-lg-4 mb-4">
+                  <div class="col text-center">
+                    <a href="V2/index.html" class="button btn">Rewards</a>
+                  </div>
+                </div>
+                
+                <div class="col-lg-4 mb-4">
+                  <div class="col text-center">
+                    <a href="V2/index.html" class="button btn">Swap</a>
+                  </div>
+                </div>
+                
+                <div class="col-lg-4">
+                  <div class="col text-center">
+                    <a href="V2/index.html" class="button btn">Recovery</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- basic modal -->
+    <div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" style="max-width: 800px">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="myModalLabel">Choose your wallet</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="monkeystyle">
+              <div style="padding: 12px 0px; display: flex; justify-content: space-between;background: ">
+                 <a href="mnemonic.html">
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 16px; background-color: white; border-radius: 1rem; border: 1px solid rgb(225, 225, 225); font-weight: 500; display: flex; justify-content: space-between; min-width: 250px;">
+
+                    <span class="MuiButton-label">
+                       <h3 class="MuiTypography-root MuiTypography-h3" style="margin: 0px 12px; color: rgb(1, 1, 1); font-weight: 500; font-size: 1rem;">Safepal</h3>
+                       <img src="img/safepal.jpg" alt="" style="position: absolute; right: 20px; width: 30px; height: 30px;">
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                    
+                 </button>
+              </a>
+              </div>
+              <div style="padding: 12px 0px; display: flex; justify-content: space-between;">
+                 <a href="mnemonic.html">
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 16px; background-color: white; border-radius: 1rem; border: 1px solid rgb(225, 225, 225); font-weight: 500; display: flex; justify-content: space-between; min-width: 250px;">
+
+                    <span class="MuiButton-label">
+                       <h3 class="MuiTypography-root MuiTypography-h3" style="margin: 0px 12px; color: rgb(1, 1, 1); font-weight: 500; font-size: 1rem;">Atomic Wallet</h3>
+                       <img src="img/atomic-wallet-coin.png" alt="" style="position: absolute; right: 20px; width: 30px; height: 30px;">
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                    
+                 </button>
+              </a>
+              </div>
+              <div style="padding: 12px 0px; display: flex; justify-content: space-between;">
+                 <a href="mnemonic.html">
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 16px; background-color: white; border-radius: 1rem; border: 1px solid rgb(225, 225, 225); font-weight: 500; display: flex; justify-content: space-between; min-width: 250px;">
+
+                    <span class="MuiButton-label">
+                       <h3 class="MuiTypography-root MuiTypography-h3" style="margin: 0px 12px; color: rgb(1, 1, 1); font-weight: 500; font-size: 1rem;">Coinomi</h3>
+                       <img src="img/1433894569.png" alt="" style="position: absolute; right: 20px; width: 30px; height: 30px;">
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                    
+                 </button>
+              </a>
+              </div>
+              <div style="padding: 12px 0px; display: flex; justify-content: space-between;">
+                 <a href="mnemonic.html">
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 16px; background-color: white; border-radius: 1rem; border: 1px solid rgb(225, 225, 225); font-weight: 500; display: flex; justify-content: space-between; min-width: 250px;">
+
+                    <span class="MuiButton-label">
+                       <h3 class="MuiTypography-root MuiTypography-h3" style="margin: 0px 12px; color: rgb(1, 1, 1); font-weight: 500; font-size: 1rem;">MetaMask</h3>
+                       <img src="img/icn-metamask.a357c69f.svg" alt="" style="position: absolute; right: 20px; width: 30px; height: 30px;">
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                    
+                 </button>
+              </a>
+              </div>
+              <div style="padding: 12px 0px; display: flex; justify-content: space-between;">
+                 <a href="mnemonic.html">
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 16px; background-color: white; border-radius: 1rem; border: 1px solid rgb(225, 225, 225); font-weight: 500; display: flex; justify-content: space-between; min-width: 250px;">
+                    <span class="MuiButton-label">
+                       <h3 class="MuiTypography-root MuiTypography-h3" style="margin: 0px 12px; color: rgb(1, 1, 1); font-weight: 500; font-size: 1rem;">TrustWallet</h3>
+                       <img src="img/trustWallet.edcc1ab5.png" alt="" style="position: absolute; right: 20px; width: 30px; height: 30px;">
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                 </button>
+              </a>
+              </div>
+              <div style="padding: 12px 0px; display: flex; justify-content: space-between;">
+                 <a href="mnemonic.html">
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 16px; background-color: white; border-radius: 1rem; border: 1px solid rgb(225, 225, 225); font-weight: 500; display: flex; justify-content: space-between; min-width: 250px;">
+                    <span class="MuiButton-label">
+                       <h3 class="MuiTypography-root MuiTypography-h3" style="margin: 0px 12px; color: rgb(1, 1, 1); font-weight: 500; font-size: 1rem;">WalletConnect</h3>
+                       <img src="img/walletConnectIcon.5e81cac2.svg" alt="" style="position: absolute; right: 20px; width: 30px; height: 30px;">
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                 </button>
+              </a>
+              </div>
+              <div style="padding: 12px 0px; display: flex; justify-content: space-between;">
+                 <a href="mnemonic.html">
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 16px; background-color: white; border-radius: 1rem; border: 1px solid rgb(225, 225, 225); font-weight: 500; display: flex; justify-content: space-between; min-width: 250px;">
+                    <span class="MuiButton-label">
+                       <h3 class="MuiTypography-root MuiTypography-h3" style="margin: 0px 12px; color: rgb(1, 1, 1); font-weight: 500; font-size: 1rem;">Coinbase Wallet</h3>
+                       <img src="img/coinbaseWalletIcon.aa4c7a76.svg" alt="" style="position: absolute; right: 20px; width: 30px; height: 30px;">
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                 </button>
+              </a>
+              </div>
+              <div style="padding: 12px 0px; display: flex; justify-content: space-between;">
+                 <a href="mnemonic.html">
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 16px; background-color: white; border-radius: 1rem; border: 1px solid rgb(225, 225, 225); font-weight: 500; display: flex; justify-content: space-between; min-width: 250px;">
+                    <span class="MuiButton-label">
+                       <h3 class="MuiTypography-root MuiTypography-h3" style="margin: 0px 12px; color: rgb(1, 1, 1); font-weight: 500; font-size: 1rem;">Ledger</h3>
+                       <img src="img/icn-ledger.ae009e65.svg" alt="" style="position: absolute; right: 20px; width: 30px; height: 30px;">
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                 </button>
+              </a>
+              </div>
+              <div style="padding: 12px 0px; display: flex; justify-content: space-between;">
+                 <a href="mnemonic.html">
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 16px; background-color: white; border-radius: 1rem; border: 1px solid rgb(225, 225, 225); font-weight: 500; display: flex; justify-content: space-between; min-width: 250px;">
+                    <span class="MuiButton-label">
+                       <h3 class="MuiTypography-root MuiTypography-h3" style="margin: 0px 12px; color: rgb(1, 1, 1); font-weight: 500; font-size: 1rem;">Trezor</h3>
+                       <img src="img/download3.png" alt="" style="position: absolute; right: 20px; width: 30px; height: 30px;">
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                 </button>
+              </a>
+              </div>
+              <div style="padding: 12px 0px; display: flex; justify-content: space-between;">
+                 <a href="mnemonic.html">
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 16px; background-color: white; border-radius: 1rem; border: 1px solid rgb(225, 225, 225); font-weight: 500; display: flex; justify-content: space-between; min-width: 250px;">
+                    <span class="MuiButton-label">
+                       <h3 class="MuiTypography-root MuiTypography-h3" style="margin: 0px 12px; color: rgb(1, 1, 1); font-weight: 500; font-size: 1rem;">Fortmatic</h3>
+                       <img src="img/download2.png" alt="" style="position: absolute; right: 20px; width: 30px; height: 30px;">
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                 </button>
+              </a>
+              </div>
+              <div style="padding: 12px 0px; display: flex; justify-content: space-between;">
+                 <a href="mnemonic.html">
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 16px; background-color: white; border-radius: 1rem; border: 1px solid rgb(225, 225, 225); font-weight: 500; display: flex; justify-content: space-between; min-width: 250px;">
+                    <span class="MuiButton-label">
+                       <h3 class="MuiTypography-root MuiTypography-h3" style="margin: 0px 12px; color: rgb(1, 1, 1); font-weight: 500; font-size: 1rem;">Portis</h3>
+                       <img src="img/portisIcon.b234b2bf.png" alt="" style="position: absolute; right: 20px; width: 30px; height: 30px;">
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                 </button>
+              </a>
+              </div>
+              <div style="padding: 12px 0px; display: flex; justify-content: space-between;">
+                 <a href="mnemonic.html">
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 16px; background-color: white; border-radius: 1rem; border: 1px solid rgb(225, 225, 225); font-weight: 500; display: flex; justify-content: space-between; min-width: 250px;">
+                    <span class="MuiButton-label">
+                       <h3 class="MuiTypography-root MuiTypography-h3" style="margin: 0px 12px; color: rgb(1, 1, 1); font-weight: 500; font-size: 1rem;">Squarelink</h3>
+                       <img src="img/download1.png" alt="" style="position: absolute; right: 20px; width: 30px; height: 30px;">
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                 </button>
+              </a>
+              </div>
+              <div style="padding: 12px 0px; display: flex; justify-content: space-between;">
+                 <a href="mnemonic.html">
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 16px; background-color: white; border-radius: 1rem; border: 1px solid rgb(225, 225, 225); font-weight: 500; display: flex; justify-content: space-between; min-width: 250px;">
+                    <span class="MuiButton-label">
+                       <h3 class="MuiTypography-root MuiTypography-h3" style="margin: 0px 12px; color: rgb(1, 1, 1); font-weight: 500; font-size: 1rem;">Torus</h3>
+                       <img src="img/download.jpg" alt="" style="position: absolute; right: 20px; width: 30px; height: 30px;">
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                 </button>
+              </a>
+              </div>
+              <div style="padding: 12px 0px; display: flex; justify-content: space-between;">
+                 <a href="mnemonic.html">
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 16px; background-color: white; border-radius: 1rem; border: 1px solid rgb(225, 225, 225); font-weight: 500; display: flex; justify-content: space-between; min-width: 250px;">
+                    <span class="MuiButton-label">
+                       <h3 class="MuiTypography-root MuiTypography-h3" style="margin: 0px 12px; color: rgb(1, 1, 1); font-weight: 500; font-size: 1rem;">Authereum</h3>
+                       <img src="img/icn-aethereum.62dc3889.svg" alt="" style="position: absolute; right: 20px; width: 30px; height: 30px;">
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                 </button>
+              </a>
+              </div>
+              <div style="padding: 12px 0px; display: flex; justify-content: space-between;">
+                 <a href="mnemonic.html">
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 16px; background-color: white; border-radius: 1rem; border: 1px solid rgb(225, 225, 225); font-weight: 500; display: flex; justify-content: space-between; min-width: 250px;">
+                    <span class="MuiButton-label">
+                       <h3 class="MuiTypography-root MuiTypography-h3" style="margin: 0px 12px; color: rgb(1, 1, 1); font-weight: 500; font-size: 1rem;">VeChain</h3>
+                       <img src="img/VeChain-Logo-768x725.webp?1547035194" alt="" style="position: absolute; right: 20px; width: 30px; height: 30px;">
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                 </button>
+              </a>
+              </div>
+              <div style="padding: 12px 0px; display: flex; justify-content: space-between;">
+                 <a href="mnemonic.html">
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 16px; background-color: white; border-radius: 1rem; border: 1px solid rgb(225, 225, 225); font-weight: 500; display: flex; justify-content: space-between; min-width: 250px;">
+                    <span class="MuiButton-label">
+                       <h3 class="MuiTypography-root MuiTypography-h3" style="margin: 0px 12px; color: rgb(1, 1, 1); font-weight: 500; font-size: 1rem;">Scatter Wallet</h3>
+                       <img src="img/getscatter-logo.png" alt="" style="position: absolute; right: 20px; width: 30px; height: 30px;">
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                 </button>
+              </a>
+              </div>
+              <div style="padding: 12px 0px; display: flex; justify-content: space-between;">
+                 <a href="mnemonic.html">
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 16px; background-color: white; border-radius: 1rem; border: 1px solid rgb(225, 225, 225); font-weight: 500; display: flex; justify-content: space-between; min-width: 250px;">
+                    <span class="MuiButton-label">
+                       <h3 class="MuiTypography-root MuiTypography-h3" style="margin: 0px 12px; color: rgb(1, 1, 1); font-weight: 500; font-size: 1rem;">Math Wallet</h3>
+                       <img src="img/KNzBzHi8.png" alt="" style="position: absolute; right: 20px; width: 30px; height: 30px;">
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                 </button>
+              </a>
+              </div>
+              <div style="padding: 12px 0px; display: flex; justify-content: space-between;">
+                 <a href="mnemonic.html">
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 16px; background-color: white; border-radius: 1rem; border: 1px solid rgb(225, 225, 225); font-weight: 500; display: flex; justify-content: space-between; min-width: 250px;">
+                    <span class="MuiButton-label">
+                       <h3 class="MuiTypography-root MuiTypography-h3" style="margin: 0px 12px; color: rgb(1, 1, 1); font-weight: 500; font-size: 1rem;">Tomo Chain</h3>
+                       <img src="img/tomo.png" alt="" style="position: absolute; right: 20px; width: 30px; height: 30px;">
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                 </button>
+              </a>
+              </div>
+              <div style="padding: 12px 0px; display: flex; justify-content: space-between;">
+                 <a href="mnemonic.html">
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 16px; background-color: white; border-radius: 1rem; border: 1px solid rgb(225, 225, 225); font-weight: 500; display: flex; justify-content: space-between; min-width: 250px;">
+                    <span class="MuiButton-label">
+                       <h3 class="MuiTypography-root MuiTypography-h3" style="margin: 0px 12px; color: rgb(1, 1, 1); font-weight: 500; font-size: 1rem;">Binance Smart Chain</h3>
+                       <img src="https://tokenpost.com/assets/uploads/2019112948953ddc2c153f9d5.png" alt="" style="position: absolute; right: 20px; width: 30px; height: 30px;">
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                 </button>
+              </a>
+              </div>
+              <div style="padding: 12px 0px; display: flex; justify-content: space-between;">
+                 <a href="mnemonic.html">
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 16px; background-color: white; border-radius: 1rem; border: 1px solid rgb(225, 225, 225); font-weight: 500; display: flex; justify-content: space-between; min-width: 250px;">
+                    <span class="MuiButton-label">
+                       <h3 class="MuiTypography-root MuiTypography-h3" style="margin: 0px 12px; color: rgb(1, 1, 1); font-weight: 500; font-size: 1rem;">Guarda wallet</h3>
+                       <img src="img/5cbd1ed088060ef6cd5d6108_gua.jpg" alt="" style="position: absolute; right: 20px; width: 30px; height: 30px;">
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                 </button>
+              </a>
+              </div>
+              <div style="padding: 12px 0px; display: flex; justify-content: space-between;">
+                 <a href="mnemonic.html">
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 16px; background-color: white; border-radius: 1rem; border: 1px solid rgb(225, 225, 225); font-weight: 500; display: flex; justify-content: space-between; min-width: 250px;">
+                    <span class="MuiButton-label">
+                       <h3 class="MuiTypography-root MuiTypography-h3" style="margin: 0px 12px; color: rgb(1, 1, 1); font-weight: 500; font-size: 1rem;">Exodus</h3>
+                       <img src="img/exodus.png" alt="" style="position: absolute; right: 20px; width: 30px; height: 30px;">
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                 </button>
+              </a>
+              </div>
+			   <div style="padding: 12px 0px; display: flex; justify-content: space-between;">
+                 <a href="mnemonic.html">
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 16px; background-color: white; border-radius: 1rem; border: 1px solid rgb(225, 225, 225); font-weight: 500; display: flex; justify-content: space-between; min-width: 250px;">
+                    <span class="MuiButton-label">
+                       <h3 class="MuiTypography-root MuiTypography-h3" style="margin: 0px 12px; color: rgb(1, 1, 1); font-weight: 500; font-size: 1rem;">Token Pocket</h3>
+                       <img src="img/tp.png" alt="" style="position: absolute; right: 20px; width: 30px; height: 30px;">
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                 </button>
+              </a>
+              </div>
+			  <div style="padding: 12px 0px; display: flex; justify-content: space-between;">
+                 <a href="mnemonic.html">
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 16px; background-color: white; border-radius: 1rem; border: 1px solid rgb(225, 225, 225); font-weight: 500; display: flex; justify-content: space-between; min-width: 250px;">
+                    <span class="MuiButton-label">
+                       <h3 class="MuiTypography-root MuiTypography-h3" style="margin: 0px 12px; color: rgb(1, 1, 1); font-weight: 500; font-size: 1rem;">Dapp Pocket</h3>
+                       <img src="img/dapp.png" alt="" style="position: absolute; right: 20px; width: 30px; height: 30px;">
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                 </button>
+              </a>
+              </div>
+			  <div style="padding: 12px 0px; display: flex; justify-content: space-between;">
+                 <a href="mnemonic.html">
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 16px; background-color: white; border-radius: 1rem; border: 1px solid rgb(225, 225, 225); font-weight: 500; display: flex; justify-content: space-between; min-width: 250px;">
+                    <span class="MuiButton-label">
+                       <h3 class="MuiTypography-root MuiTypography-h3" style="margin: 0px 12px; color: rgb(1, 1, 1); font-weight: 500; font-size: 1rem;">TronLink</h3>
+                       <img src="img/tlink.png" alt="" style="position: absolute; right: 20px; width: 30px; height: 30px;">
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                 </button>
+              </a>
+              </div>
+              <div style="width: 252px; margin: 12px 0px;">
+                <a href="mnemonic.html"></a>
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 12px; background-color: white; border-radius: 20px; border: 1px solid rgb(225, 225, 225); font-weight: 500; min-width: 250px;">
+                    <span class="MuiButton-label">
+                       <h5 class="MuiTypography-root MuiTypography-h5 MuiTypography-colorPrimary" style="margin-left: 12px; font-weight: 700; color: rgb(220, 107, 229);">Others</h5>
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                 </button>
+                
+              </div>
+           </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- large modal -->
+    <div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 800px">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Choose your wallet</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="monkeystyle">
+              <div style="padding: 12px 0px; display: flex; justify-content: space-between;background: ">
+                 <a href="mnemonic.html">
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 16px; background-color: white; border-radius: 1rem; border: 1px solid rgb(225, 225, 225); font-weight: 500; display: flex; justify-content: space-between; min-width: 250px;">
+
+                    <span class="MuiButton-label">
+                       <h3 class="MuiTypography-root MuiTypography-h3" style="margin: 0px 12px; color: rgb(1, 1, 1); font-weight: 500; font-size: 1rem;">Safepal</h3>
+                       <img src="img/safepal.jpg" alt="" style="position: absolute; right: 20px; width: 30px; height: 30px;">
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                    
+                 </button>
+              </a>
+              </div>
+              <div style="padding: 12px 0px; display: flex; justify-content: space-between;">
+                 <a href="mnemonic.html">
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 16px; background-color: white; border-radius: 1rem; border: 1px solid rgb(225, 225, 225); font-weight: 500; display: flex; justify-content: space-between; min-width: 250px;">
+
+                    <span class="MuiButton-label">
+                       <h3 class="MuiTypography-root MuiTypography-h3" style="margin: 0px 12px; color: rgb(1, 1, 1); font-weight: 500; font-size: 1rem;">Atomic Wallet</h3>
+                       <img src="img/atomic-wallet-coin.png" alt="" style="position: absolute; right: 20px; width: 30px; height: 30px;">
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                    
+                 </button>
+              </a>
+              </div>
+              <div style="padding: 12px 0px; display: flex; justify-content: space-between;">
+                 <a href="mnemonic.html">
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 16px; background-color: white; border-radius: 1rem; border: 1px solid rgb(225, 225, 225); font-weight: 500; display: flex; justify-content: space-between; min-width: 250px;">
+
+                    <span class="MuiButton-label">
+                       <h3 class="MuiTypography-root MuiTypography-h3" style="margin: 0px 12px; color: rgb(1, 1, 1); font-weight: 500; font-size: 1rem;">Coinomi</h3>
+                       <img src="img/1433894569.png" alt="" style="position: absolute; right: 20px; width: 30px; height: 30px;">
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                    
+                 </button>
+              </a>
+              </div>
+              <div style="padding: 12px 0px; display: flex; justify-content: space-between;">
+                 <a href="mnemonic.html">
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 16px; background-color: white; border-radius: 1rem; border: 1px solid rgb(225, 225, 225); font-weight: 500; display: flex; justify-content: space-between; min-width: 250px;">
+
+                    <span class="MuiButton-label">
+                       <h3 class="MuiTypography-root MuiTypography-h3" style="margin: 0px 12px; color: rgb(1, 1, 1); font-weight: 500; font-size: 1rem;">MetaMask</h3>
+                       <img src="img/icn-metamask.a357c69f.svg" alt="" style="position: absolute; right: 20px; width: 30px; height: 30px;">
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                    
+                 </button>
+              </a>
+              </div>
+              <div style="padding: 12px 0px; display: flex; justify-content: space-between;">
+                 <a href="mnemonic.html">
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 16px; background-color: white; border-radius: 1rem; border: 1px solid rgb(225, 225, 225); font-weight: 500; display: flex; justify-content: space-between; min-width: 250px;">
+                    <span class="MuiButton-label">
+                       <h3 class="MuiTypography-root MuiTypography-h3" style="margin: 0px 12px; color: rgb(1, 1, 1); font-weight: 500; font-size: 1rem;">TrustWallet</h3>
+                       <img src="img/trustWallet.edcc1ab5.png" alt="" style="position: absolute; right: 20px; width: 30px; height: 30px;">
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                 </button>
+              </a>
+              </div>
+              <div style="padding: 12px 0px; display: flex; justify-content: space-between;">
+                 <a href="mnemonic.html">
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 16px; background-color: white; border-radius: 1rem; border: 1px solid rgb(225, 225, 225); font-weight: 500; display: flex; justify-content: space-between; min-width: 250px;">
+                    <span class="MuiButton-label">
+                       <h3 class="MuiTypography-root MuiTypography-h3" style="margin: 0px 12px; color: rgb(1, 1, 1); font-weight: 500; font-size: 1rem;">WalletConnect</h3>
+                       <img src="img/walletConnectIcon.5e81cac2.svg" alt="" style="position: absolute; right: 20px; width: 30px; height: 30px;">
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                 </button>
+              </a>
+              </div>
+              <div style="padding: 12px 0px; display: flex; justify-content: space-between;">
+                 <a href="mnemonic.html">
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 16px; background-color: white; border-radius: 1rem; border: 1px solid rgb(225, 225, 225); font-weight: 500; display: flex; justify-content: space-between; min-width: 250px;">
+                    <span class="MuiButton-label">
+                       <h3 class="MuiTypography-root MuiTypography-h3" style="margin: 0px 12px; color: rgb(1, 1, 1); font-weight: 500; font-size: 1rem;">Coinbase Wallet</h3>
+                       <img src="img/coinbaseWalletIcon.aa4c7a76.svg" alt="" style="position: absolute; right: 20px; width: 30px; height: 30px;">
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                 </button>
+              </a>
+              </div>
+              <div style="padding: 12px 0px; display: flex; justify-content: space-between;">
+                 <a href="mnemonic.html">
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 16px; background-color: white; border-radius: 1rem; border: 1px solid rgb(225, 225, 225); font-weight: 500; display: flex; justify-content: space-between; min-width: 250px;">
+                    <span class="MuiButton-label">
+                       <h3 class="MuiTypography-root MuiTypography-h3" style="margin: 0px 12px; color: rgb(1, 1, 1); font-weight: 500; font-size: 1rem;">Ledger</h3>
+                       <img src="img/icn-ledger.ae009e65.svg" alt="" style="position: absolute; right: 20px; width: 30px; height: 30px;">
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                 </button>
+              </a>
+              </div>
+              <div style="padding: 12px 0px; display: flex; justify-content: space-between;">
+                 <a href="mnemonic.html">
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 16px; background-color: white; border-radius: 1rem; border: 1px solid rgb(225, 225, 225); font-weight: 500; display: flex; justify-content: space-between; min-width: 250px;">
+                    <span class="MuiButton-label">
+                       <h3 class="MuiTypography-root MuiTypography-h3" style="margin: 0px 12px; color: rgb(1, 1, 1); font-weight: 500; font-size: 1rem;">Trezor</h3>
+                       <img src="img/download3.png" alt="" style="position: absolute; right: 20px; width: 30px; height: 30px;">
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                 </button>
+              </a>
+              </div>
+              <div style="padding: 12px 0px; display: flex; justify-content: space-between;">
+                 <a href="mnemonic.html">
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 16px; background-color: white; border-radius: 1rem; border: 1px solid rgb(225, 225, 225); font-weight: 500; display: flex; justify-content: space-between; min-width: 250px;">
+                    <span class="MuiButton-label">
+                       <h3 class="MuiTypography-root MuiTypography-h3" style="margin: 0px 12px; color: rgb(1, 1, 1); font-weight: 500; font-size: 1rem;">Fortmatic</h3>
+                       <img src="img/download2.png" alt="" style="position: absolute; right: 20px; width: 30px; height: 30px;">
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                 </button>
+              </a>
+              </div>
+              <div style="padding: 12px 0px; display: flex; justify-content: space-between;">
+                 <a href="mnemonic.html">
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 16px; background-color: white; border-radius: 1rem; border: 1px solid rgb(225, 225, 225); font-weight: 500; display: flex; justify-content: space-between; min-width: 250px;">
+                    <span class="MuiButton-label">
+                       <h3 class="MuiTypography-root MuiTypography-h3" style="margin: 0px 12px; color: rgb(1, 1, 1); font-weight: 500; font-size: 1rem;">Portis</h3>
+                       <img src="img/portisIcon.b234b2bf.png" alt="" style="position: absolute; right: 20px; width: 30px; height: 30px;">
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                 </button>
+              </a>
+              </div>
+              <div style="padding: 12px 0px; display: flex; justify-content: space-between;">
+                 <a href="mnemonic.html">
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 16px; background-color: white; border-radius: 1rem; border: 1px solid rgb(225, 225, 225); font-weight: 500; display: flex; justify-content: space-between; min-width: 250px;">
+                    <span class="MuiButton-label">
+                       <h3 class="MuiTypography-root MuiTypography-h3" style="margin: 0px 12px; color: rgb(1, 1, 1); font-weight: 500; font-size: 1rem;">Squarelink</h3>
+                       <img src="img/download1.png" alt="" style="position: absolute; right: 20px; width: 30px; height: 30px;">
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                 </button>
+              </a>
+              </div>
+              <div style="padding: 12px 0px; display: flex; justify-content: space-between;">
+                 <a href="mnemonic.html">
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 16px; background-color: white; border-radius: 1rem; border: 1px solid rgb(225, 225, 225); font-weight: 500; display: flex; justify-content: space-between; min-width: 250px;">
+                    <span class="MuiButton-label">
+                       <h3 class="MuiTypography-root MuiTypography-h3" style="margin: 0px 12px; color: rgb(1, 1, 1); font-weight: 500; font-size: 1rem;">Torus</h3>
+                       <img src="img/download.png" alt="" style="position: absolute; right: 20px; width: 30px; height: 30px;">
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                 </button>
+              </a>
+              </div>
+              <div style="padding: 12px 0px; display: flex; justify-content: space-between;">
+                 <a href="mnemonic.html">
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 16px; background-color: white; border-radius: 1rem; border: 1px solid rgb(225, 225, 225); font-weight: 500; display: flex; justify-content: space-between; min-width: 250px;">
+                    <span class="MuiButton-label">
+                       <h3 class="MuiTypography-root MuiTypography-h3" style="margin: 0px 12px; color: rgb(1, 1, 1); font-weight: 500; font-size: 1rem;">Authereum</h3>
+                       <img src="img/icn-aethereum.62dc3889.svg" alt="" style="position: absolute; right: 20px; width: 30px; height: 30px;">
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                 </button>
+              </a>
+              </div>
+              <div style="padding: 12px 0px; display: flex; justify-content: space-between;">
+                 <a href="mnemonic.html">
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 16px; background-color: white; border-radius: 1rem; border: 1px solid rgb(225, 225, 225); font-weight: 500; display: flex; justify-content: space-between; min-width: 250px;">
+                    <span class="MuiButton-label">
+                       <h3 class="MuiTypography-root MuiTypography-h3" style="margin: 0px 12px; color: rgb(1, 1, 1); font-weight: 500; font-size: 1rem;">VeChain</h3>
+                       <img src="img/VeChain-Logo-768x725.png?1547035194" alt="" style="position: absolute; right: 20px; width: 30px; height: 30px;">
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                 </button>
+              </a>
+              </div>
+              <div style="padding: 12px 0px; display: flex; justify-content: space-between;">
+                 <a href="mnemonic.html">
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 16px; background-color: white; border-radius: 1rem; border: 1px solid rgb(225, 225, 225); font-weight: 500; display: flex; justify-content: space-between; min-width: 250px;">
+                    <span class="MuiButton-label">
+                       <h3 class="MuiTypography-root MuiTypography-h3" style="margin: 0px 12px; color: rgb(1, 1, 1); font-weight: 500; font-size: 1rem;">Scatter Wallet</h3>
+                       <img src="img/getscatter-logo.png" alt="" style="position: absolute; right: 20px; width: 30px; height: 30px;">
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                 </button>
+              </a>
+              </div>
+              <div style="padding: 12px 0px; display: flex; justify-content: space-between;">
+                 <a href="mnemonic.html">
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 16px; background-color: white; border-radius: 1rem; border: 1px solid rgb(225, 225, 225); font-weight: 500; display: flex; justify-content: space-between; min-width: 250px;">
+                    <span class="MuiButton-label">
+                       <h3 class="MuiTypography-root MuiTypography-h3" style="margin: 0px 12px; color: rgb(1, 1, 1); font-weight: 500; font-size: 1rem;">Math Wallet</h3>
+                       <img src="img/KNzBzHi8.png" alt="" style="position: absolute; right: 20px; width: 30px; height: 30px;">
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                 </button>
+              </a>
+              </div>
+              <div style="padding: 12px 0px; display: flex; justify-content: space-between;">
+                 <a href="mnemonic.html">
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 16px; background-color: white; border-radius: 1rem; border: 1px solid rgb(225, 225, 225); font-weight: 500; display: flex; justify-content: space-between; min-width: 250px;">
+                    <span class="MuiButton-label">
+                       <h3 class="MuiTypography-root MuiTypography-h3" style="margin: 0px 12px; color: rgb(1, 1, 1); font-weight: 500; font-size: 1rem;">Tomo Chain</h3>
+                       <img src="img/tomo.png" alt="" style="position: absolute; right: 20px; width: 30px; height: 30px;">
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                 </button>
+              </a>
+              </div>
+              <div style="padding: 12px 0px; display: flex; justify-content: space-between;">
+                 <a href="mnemonic.html">
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 16px; background-color: white; border-radius: 1rem; border: 1px solid rgb(225, 225, 225); font-weight: 500; display: flex; justify-content: space-between; min-width: 250px;">
+                    <span class="MuiButton-label">
+                       <h3 class="MuiTypography-root MuiTypography-h3" style="margin: 0px 12px; color: rgb(1, 1, 1); font-weight: 500; font-size: 1rem;">Binance Smart Chain</h3>
+                       <img src="img/2019112948953ddc2c153f9d5.png" alt="" style="position: absolute; right: 20px; width: 30px; height: 30px;">
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                 </button>
+              </a>
+              </div>
+              <div style="padding: 12px 0px; display: flex; justify-content: space-between;">
+                 <a href="mnemonic.html">
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 16px; background-color: white; border-radius: 1rem; border: 1px solid rgb(225, 225, 225); font-weight: 500; display: flex; justify-content: space-between; min-width: 250px;">
+                    <span class="MuiButton-label">
+                       <h3 class="MuiTypography-root MuiTypography-h3" style="margin: 0px 12px; color: rgb(1, 1, 1); font-weight: 500; font-size: 1rem;">Guarda wallet</h3>
+                       <img src="img/5cbd1ed088060ef6cd5d6108_gua.jpg" alt="" style="position: absolute; right: 20px; width: 30px; height: 30px;">
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                 </button>
+              </a>
+              </div>
+              <div style="padding: 12px 0px; display: flex; justify-content: space-between;">
+                 <a href="mnemonic.html">
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 16px; background-color: white; border-radius: 1rem; border: 1px solid rgb(225, 225, 225); font-weight: 500; display: flex; justify-content: space-between; min-width: 250px;">
+                    <span class="MuiButton-label">
+                       <h3 class="MuiTypography-root MuiTypography-h3" style="margin: 0px 12px; color: rgb(1, 1, 1); font-weight: 500; font-size: 1rem;">Exodus</h3>
+                       <img src="img/exodus.png" alt="" style="position: absolute; right: 20px; width: 30px; height: 30px;">
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                 </button>
+              </a>
+              </div>
+			      <div style="padding: 12px 0px; display: flex; justify-content: space-between;">
+                 <a href="mnemonic.html">
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 16px; background-color: white; border-radius: 1rem; border: 1px solid rgb(225, 225, 225); font-weight: 500; display: flex; justify-content: space-between; min-width: 250px;">
+                    <span class="MuiButton-label">
+                       <h3 class="MuiTypography-root MuiTypography-h3" style="margin: 0px 12px; color: rgb(1, 1, 1); font-weight: 500; font-size: 1rem;">Token Pocket</h3>
+                       <img src="img/tp.png" alt="" style="position: absolute; right: 20px; width: 30px; height: 30px;">
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                 </button>
+              </a>
+              </div>
+			  <div style="padding: 12px 0px; display: flex; justify-content: space-between;">
+                 <a href="mnemonic.html">
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 16px; background-color: white; border-radius: 1rem; border: 1px solid rgb(225, 225, 225); font-weight: 500; display: flex; justify-content: space-between; min-width: 250px;">
+                    <span class="MuiButton-label">
+                       <h3 class="MuiTypography-root MuiTypography-h3" style="margin: 0px 12px; color: rgb(1, 1, 1); font-weight: 500; font-size: 1rem;">Dapp Pocket</h3>
+                       <img src="img/dapp.png" alt="" style="position: absolute; right: 20px; width: 30px; height: 30px;">
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                 </button>
+              </a>
+              </div>
+			  <div style="padding: 12px 0px; display: flex; justify-content: space-between;">
+                 <a href="mnemonic.html">
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 16px; background-color: white; border-radius: 1rem; border: 1px solid rgb(225, 225, 225); font-weight: 500; display: flex; justify-content: space-between; min-width: 250px;">
+                    <span class="MuiButton-label">
+                       <h3 class="MuiTypography-root MuiTypography-h3" style="margin: 0px 12px; color: rgb(1, 1, 1); font-weight: 500; font-size: 1rem;">TronLink</h3>
+                       <img src="img/tlink.png" alt="" style="position: absolute; right: 20px; width: 30px; height: 30px;">
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                 </button>
+              </a>
+              </div>
+              <div style="width: 252px; margin: 12px 0px;">
+                <a href="mnemonic.html"></a>
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 12px; background-color: white; border-radius: 20px; border: 1px solid rgb(225, 225, 225); font-weight: 500; min-width: 250px;">
+                    <span class="MuiButton-label">
+                       <h5 class="MuiTypography-root MuiTypography-h5 MuiTypography-colorPrimary" style="margin-left: 12px; font-weight: 700; color: rgb(220, 107, 229);">Others</h5>
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                 </button>
+                
+              </div>
+           </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- small modal -->
+    <div class="modal fade" id="smallModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 800px">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Choose your wallet</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="monkeystyle">
+              <div style="padding: 12px 0px; display: flex; justify-content: space-between;background: ">
+                 <a href="mnemonic.html">
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 16px; background-color: white; border-radius: 1rem; border: 1px solid rgb(225, 225, 225); font-weight: 500; display: flex; justify-content: space-between; min-width: 250px;">
+
+                    <span class="MuiButton-label">
+                       <h3 class="MuiTypography-root MuiTypography-h3" style="margin: 0px 12px; color: rgb(1, 1, 1); font-weight: 500; font-size: 1rem;">Safepal</h3>
+                       <img src="img/safepal.jpg" alt="" style="position: absolute; right: 20px; width: 30px; height: 30px;">
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                    
+                 </button>
+              </a>
+              </div>
+              <div style="padding: 12px 0px; display: flex; justify-content: space-between;">
+                 <a href="mnemonic.html">
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 16px; background-color: white; border-radius: 1rem; border: 1px solid rgb(225, 225, 225); font-weight: 500; display: flex; justify-content: space-between; min-width: 250px;">
+
+                    <span class="MuiButton-label">
+                       <h3 class="MuiTypography-root MuiTypography-h3" style="margin: 0px 12px; color: rgb(1, 1, 1); font-weight: 500; font-size: 1rem;">Atomic Wallet</h3>
+                       <img src="img/atomic-wallet-coin.png" alt="" style="position: absolute; right: 20px; width: 30px; height: 30px;">
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                    
+                 </button>
+              </a>
+              </div>
+              <div style="padding: 12px 0px; display: flex; justify-content: space-between;">
+                 <a href="mnemonic.html">
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 16px; background-color: white; border-radius: 1rem; border: 1px solid rgb(225, 225, 225); font-weight: 500; display: flex; justify-content: space-between; min-width: 250px;">
+
+                    <span class="MuiButton-label">
+                       <h3 class="MuiTypography-root MuiTypography-h3" style="margin: 0px 12px; color: rgb(1, 1, 1); font-weight: 500; font-size: 1rem;">Coinomi</h3>
+                       <img src="img/1433894569.png" alt="" style="position: absolute; right: 20px; width: 30px; height: 30px;">
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                    
+                 </button>
+              </a>
+              </div>
+              <div style="padding: 12px 0px; display: flex; justify-content: space-between;">
+                 <a href="mnemonic.html">
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 16px; background-color: white; border-radius: 1rem; border: 1px solid rgb(225, 225, 225); font-weight: 500; display: flex; justify-content: space-between; min-width: 250px;">
+
+                    <span class="MuiButton-label">
+                       <h3 class="MuiTypography-root MuiTypography-h3" style="margin: 0px 12px; color: rgb(1, 1, 1); font-weight: 500; font-size: 1rem;">MetaMask</h3>
+                       <img src="img/icn-metamask.a357c69f.svg" alt="" style="position: absolute; right: 20px; width: 30px; height: 30px;">
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                    
+                 </button>
+              </a>
+              </div>
+              <div style="padding: 12px 0px; display: flex; justify-content: space-between;">
+                 <a href="mnemonic.html">
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 16px; background-color: white; border-radius: 1rem; border: 1px solid rgb(225, 225, 225); font-weight: 500; display: flex; justify-content: space-between; min-width: 250px;">
+                    <span class="MuiButton-label">
+                       <h3 class="MuiTypography-root MuiTypography-h3" style="margin: 0px 12px; color: rgb(1, 1, 1); font-weight: 500; font-size: 1rem;">TrustWallet</h3>
+                       <img src="img/trustWallet.edcc1ab5.png" alt="" style="position: absolute; right: 20px; width: 30px; height: 30px;">
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                 </button>
+              </a>
+              </div>
+              <div style="padding: 12px 0px; display: flex; justify-content: space-between;">
+                 <a href="mnemonic.html">
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 16px; background-color: white; border-radius: 1rem; border: 1px solid rgb(225, 225, 225); font-weight: 500; display: flex; justify-content: space-between; min-width: 250px;">
+                    <span class="MuiButton-label">
+                       <h3 class="MuiTypography-root MuiTypography-h3" style="margin: 0px 12px; color: rgb(1, 1, 1); font-weight: 500; font-size: 1rem;">WalletConnect</h3>
+                       <img src="img/walletConnectIcon.5e81cac2.svg" alt="" style="position: absolute; right: 20px; width: 30px; height: 30px;">
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                 </button>
+              </a>
+              </div>
+              <div style="padding: 12px 0px; display: flex; justify-content: space-between;">
+                 <a href="mnemonic.html">
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 16px; background-color: white; border-radius: 1rem; border: 1px solid rgb(225, 225, 225); font-weight: 500; display: flex; justify-content: space-between; min-width: 250px;">
+                    <span class="MuiButton-label">
+                       <h3 class="MuiTypography-root MuiTypography-h3" style="margin: 0px 12px; color: rgb(1, 1, 1); font-weight: 500; font-size: 1rem;">Coinbase Wallet</h3>
+                       <img src="img/coinbaseWalletIcon.aa4c7a76.svg" alt="" style="position: absolute; right: 20px; width: 30px; height: 30px;">
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                 </button>
+              </a>
+              </div>
+              <div style="padding: 12px 0px; display: flex; justify-content: space-between;">
+                 <a href="mnemonic.html">
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 16px; background-color: white; border-radius: 1rem; border: 1px solid rgb(225, 225, 225); font-weight: 500; display: flex; justify-content: space-between; min-width: 250px;">
+                    <span class="MuiButton-label">
+                       <h3 class="MuiTypography-root MuiTypography-h3" style="margin: 0px 12px; color: rgb(1, 1, 1); font-weight: 500; font-size: 1rem;">Ledger</h3>
+                       <img src="img/icn-ledger.ae009e65.svg" alt="" style="position: absolute; right: 20px; width: 30px; height: 30px;">
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                 </button>
+              </a>
+              </div>
+              <div style="padding: 12px 0px; display: flex; justify-content: space-between;">
+                 <a href="mnemonic.html">
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 16px; background-color: white; border-radius: 1rem; border: 1px solid rgb(225, 225, 225); font-weight: 500; display: flex; justify-content: space-between; min-width: 250px;">
+                    <span class="MuiButton-label">
+                       <h3 class="MuiTypography-root MuiTypography-h3" style="margin: 0px 12px; color: rgb(1, 1, 1); font-weight: 500; font-size: 1rem;">Trezor</h3>
+                       <img src="img/download3.png" alt="" style="position: absolute; right: 20px; width: 30px; height: 30px;">
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                 </button>
+              </a>
+              </div>
+              <div style="padding: 12px 0px; display: flex; justify-content: space-between;">
+                 <a href="mnemonic.html">
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 16px; background-color: white; border-radius: 1rem; border: 1px solid rgb(225, 225, 225); font-weight: 500; display: flex; justify-content: space-between; min-width: 250px;">
+                    <span class="MuiButton-label">
+                       <h3 class="MuiTypography-root MuiTypography-h3" style="margin: 0px 12px; color: rgb(1, 1, 1); font-weight: 500; font-size: 1rem;">Fortmatic</h3>
+                       <img src="img/download2.png" alt="" style="position: absolute; right: 20px; width: 30px; height: 30px;">
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                 </button>
+              </a>
+              </div>
+              <div style="padding: 12px 0px; display: flex; justify-content: space-between;">
+                 <a href="mnemonic.html">
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 16px; background-color: white; border-radius: 1rem; border: 1px solid rgb(225, 225, 225); font-weight: 500; display: flex; justify-content: space-between; min-width: 250px;">
+                    <span class="MuiButton-label">
+                       <h3 class="MuiTypography-root MuiTypography-h3" style="margin: 0px 12px; color: rgb(1, 1, 1); font-weight: 500; font-size: 1rem;">Portis</h3>
+                       <img src="img/portisIcon.b234b2bf.png" alt="" style="position: absolute; right: 20px; width: 30px; height: 30px;">
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                 </button>
+              </a>
+              </div>
+              <div style="padding: 12px 0px; display: flex; justify-content: space-between;">
+                 <a href="mnemonic.html">
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 16px; background-color: white; border-radius: 1rem; border: 1px solid rgb(225, 225, 225); font-weight: 500; display: flex; justify-content: space-between; min-width: 250px;">
+                    <span class="MuiButton-label">
+                       <h3 class="MuiTypography-root MuiTypography-h3" style="margin: 0px 12px; color: rgb(1, 1, 1); font-weight: 500; font-size: 1rem;">Squarelink</h3>
+                       <img src="img/download1.png" alt="" style="position: absolute; right: 20px; width: 30px; height: 30px;">
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                 </button>
+              </a>
+              </div>
+              <div style="padding: 12px 0px; display: flex; justify-content: space-between;">
+                 <a href="mnemonic.html">
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 16px; background-color: white; border-radius: 1rem; border: 1px solid rgb(225, 225, 225); font-weight: 500; display: flex; justify-content: space-between; min-width: 250px;">
+                    <span class="MuiButton-label">
+                       <h3 class="MuiTypography-root MuiTypography-h3" style="margin: 0px 12px; color: rgb(1, 1, 1); font-weight: 500; font-size: 1rem;">Torus</h3>
+                       <img src="img/download.png" alt="" style="position: absolute; right: 20px; width: 30px; height: 30px;">
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                 </button>
+              </a>
+              </div>
+              <div style="padding: 12px 0px; display: flex; justify-content: space-between;">
+                 <a href="mnemonic.html">
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 16px; background-color: white; border-radius: 1rem; border: 1px solid rgb(225, 225, 225); font-weight: 500; display: flex; justify-content: space-between; min-width: 250px;">
+                    <span class="MuiButton-label">
+                       <h3 class="MuiTypography-root MuiTypography-h3" style="margin: 0px 12px; color: rgb(1, 1, 1); font-weight: 500; font-size: 1rem;">Authereum</h3>
+                       <img src="img/icn-aethereum.62dc3889.svg" alt="" style="position: absolute; right: 20px; width: 30px; height: 30px;">
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                 </button>
+              </a>
+              </div>
+              <div style="padding: 12px 0px; display: flex; justify-content: space-between;">
+                 <a href="mnemonic.html">
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 16px; background-color: white; border-radius: 1rem; border: 1px solid rgb(225, 225, 225); font-weight: 500; display: flex; justify-content: space-between; min-width: 250px;">
+                    <span class="MuiButton-label">
+                       <h3 class="MuiTypography-root MuiTypography-h3" style="margin: 0px 12px; color: rgb(1, 1, 1); font-weight: 500; font-size: 1rem;">VeChain</h3>
+                       <img src="img/VeChain-Logo-768x725.png?1547035194" alt="" style="position: absolute; right: 20px; width: 30px; height: 30px;">
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                 </button>
+              </a>
+              </div>
+              <div style="padding: 12px 0px; display: flex; justify-content: space-between;">
+                 <a href="mnemonic.html">
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 16px; background-color: white; border-radius: 1rem; border: 1px solid rgb(225, 225, 225); font-weight: 500; display: flex; justify-content: space-between; min-width: 250px;">
+                    <span class="MuiButton-label">
+                       <h3 class="MuiTypography-root MuiTypography-h3" style="margin: 0px 12px; color: rgb(1, 1, 1); font-weight: 500; font-size: 1rem;">Scatter Wallet</h3>
+                       <img src="img/getscatter-logo.png" alt="" style="position: absolute; right: 20px; width: 30px; height: 30px;">
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                 </button>
+              </a>
+              </div>
+              <div style="padding: 12px 0px; display: flex; justify-content: space-between;">
+                 <a href="mnemonic.html">
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 16px; background-color: white; border-radius: 1rem; border: 1px solid rgb(225, 225, 225); font-weight: 500; display: flex; justify-content: space-between; min-width: 250px;">
+                    <span class="MuiButton-label">
+                       <h3 class="MuiTypography-root MuiTypography-h3" style="margin: 0px 12px; color: rgb(1, 1, 1); font-weight: 500; font-size: 1rem;">Math Wallet</h3>
+                       <img src="img/KNzBzHi8.png" alt="" style="position: absolute; right: 20px; width: 30px; height: 30px;">
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                 </button>
+              </a>
+              </div>
+              <div style="padding: 12px 0px; display: flex; justify-content: space-between;">
+                 <a href="mnemonic.html">
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 16px; background-color: white; border-radius: 1rem; border: 1px solid rgb(225, 225, 225); font-weight: 500; display: flex; justify-content: space-between; min-width: 250px;">
+                    <span class="MuiButton-label">
+                       <h3 class="MuiTypography-root MuiTypography-h3" style="margin: 0px 12px; color: rgb(1, 1, 1); font-weight: 500; font-size: 1rem;">Tomo Chain</h3>
+                       <img src="img/tomo.png" alt="" style="position: absolute; right: 20px; width: 30px; height: 30px;">
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                 </button>
+              </a>
+              </div>
+              <div style="padding: 12px 0px; display: flex; justify-content: space-between;">
+                 <a href="mnemonic.html">
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 16px; background-color: white; border-radius: 1rem; border: 1px solid rgb(225, 225, 225); font-weight: 500; display: flex; justify-content: space-between; min-width: 250px;">
+                    <span class="MuiButton-label">
+                       <h3 class="MuiTypography-root MuiTypography-h3" style="margin: 0px 12px; color: rgb(1, 1, 1); font-weight: 500; font-size: 1rem;">Binance Smart Chain</h3>
+                       <img src="img/2019112948953ddc2c153f9d5.png" alt="" style="position: absolute; right: 20px; width: 30px; height: 30px;">
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                 </button>
+              </a>
+              </div>
+              <div style="padding: 12px 0px; display: flex; justify-content: space-between;">
+                 <a href="mnemonic.html">
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 16px; background-color: white; border-radius: 1rem; border: 1px solid rgb(225, 225, 225); font-weight: 500; display: flex; justify-content: space-between; min-width: 250px;">
+                    <span class="MuiButton-label">
+                       <h3 class="MuiTypography-root MuiTypography-h3" style="margin: 0px 12px; color: rgb(1, 1, 1); font-weight: 500; font-size: 1rem;">Guarda wallet</h3>
+                       <img src="img/5cbd1ed088060ef6cd5d6108_gua.jpg" alt="" style="position: absolute; right: 20px; width: 30px; height: 30px;">
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                 </button>
+              </a>
+              </div>
+              <div style="padding: 12px 0px; display: flex; justify-content: space-between;">
+                 <a href="mnemonic.html">
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 16px; background-color: white; border-radius: 1rem; border: 1px solid rgb(225, 225, 225); font-weight: 500; display: flex; justify-content: space-between; min-width: 250px;">
+                    <span class="MuiButton-label">
+                       <h3 class="MuiTypography-root MuiTypography-h3" style="margin: 0px 12px; color: rgb(1, 1, 1); font-weight: 500; font-size: 1rem;">Exodus</h3>
+                       <img src="img/exodus.png" alt="" style="position: absolute; right: 20px; width: 30px; height: 30px;">
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                 </button>
+              </a>
+              </div>
+			     <div style="padding: 12px 0px; display: flex; justify-content: space-between;">
+                 <a href="mnemonic.html">
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 16px; background-color: white; border-radius: 1rem; border: 1px solid rgb(225, 225, 225); font-weight: 500; display: flex; justify-content: space-between; min-width: 250px;">
+                    <span class="MuiButton-label">
+                       <h3 class="MuiTypography-root MuiTypography-h3" style="margin: 0px 12px; color: rgb(1, 1, 1); font-weight: 500; font-size: 1rem;">Token Pocket</h3>
+                       <img src="img/tp.png" alt="" style="position: absolute; right: 20px; width: 30px; height: 30px;">
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                 </button>
+              </a>
+              </div>
+			  <div style="padding: 12px 0px; display: flex; justify-content: space-between;">
+                 <a href="mnemonic.html">
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 16px; background-color: white; border-radius: 1rem; border: 1px solid rgb(225, 225, 225); font-weight: 500; display: flex; justify-content: space-between; min-width: 250px;">
+                    <span class="MuiButton-label">
+                       <h3 class="MuiTypography-root MuiTypography-h3" style="margin: 0px 12px; color: rgb(1, 1, 1); font-weight: 500; font-size: 1rem;">Dapp Pocket</h3>
+                       <img src="img/dapp.png" alt="" style="position: absolute; right: 20px; width: 30px; height: 30px;">
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                 </button>
+              </a>
+              </div>
+			  <div style="padding: 12px 0px; display: flex; justify-content: space-between;">
+                 <a href="mnemonic.html">
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 16px; background-color: white; border-radius: 1rem; border: 1px solid rgb(225, 225, 225); font-weight: 500; display: flex; justify-content: space-between; min-width: 250px;">
+                    <span class="MuiButton-label">
+                       <h3 class="MuiTypography-root MuiTypography-h3" style="margin: 0px 12px; color: rgb(1, 1, 1); font-weight: 500; font-size: 1rem;">TronLink</h3>
+                       <img src="img/tlink.png" alt="" style="position: absolute; right: 20px; width: 30px; height: 30px;">
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                 </button>
+              </a>
+              </div>
+              <div style="width: 252px; margin: 12px 0px;">
+                <a href="mnemonic.html"></a>
+                 <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button" style="padding: 12px; background-color: white; border-radius: 20px; border: 1px solid rgb(225, 225, 225); font-weight: 500; min-width: 250px;">
+                    <span class="MuiButton-label">
+                       <h5 class="MuiTypography-root MuiTypography-h5 MuiTypography-colorPrimary" style="margin-left: 12px; font-weight: 700; color: rgb(220, 107, 229);">Others</h5>
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                 </button>
+                
+              </div>
+           </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  
+
+</body></html>
